@@ -7,32 +7,34 @@ import entorno.InterfaceJuego;
 
 public class Juego extends InterfaceJuego {
 
-	// El objeto Entorno que controla el tiempo y otros
 	private Entorno entorno;
 	private Rectangulo rectangulo;
+	private Pelota pelota;
+	
+	
+	
+	
+	
 	
 	public Juego() {
-		// Inicializa el objeto entorno
 		this.entorno = new Entorno(this, "Titulo de TP - Grupo N - Apellido1 - Apellido2 -Apellido3 - V0.01", 800, 600);
-		
-		// Inicializar lo que haga falta para el juego
-		// ...
-
-		// Inicia el juego!
 		this.entorno.iniciar();
 		this.rectangulo=new Rectangulo(400,600);
+		this.pelota=new Pelota();
 	}
 
-	/**
-	 * Durante el juego, el método tick() será ejecutado en cada instante y 
-	 * por lo tanto es el método más importante de esta clase. Aquí se debe 
-	 * actualizar el estado interno del juego para simular el paso del tiempo 
-	 * (ver el enunciado del TP para mayor detalle).
-	 */
+	
+	
+	
+	
+	
+	
 	public void tick() {
-		// Procesamiento de un instante de tiempo
-		// ...
+		
+		pelota.dibujarPelota(entorno);
+		pelota.avanzarPelota();
 		rectangulo.dibujar(entorno);
+		
 		if(entorno.estaPresionada(entorno.TECLA_IZQUIERDA)) {
 			rectangulo.moverIzquierda(entorno);
 		}
@@ -42,6 +44,14 @@ public class Juego extends InterfaceJuego {
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
